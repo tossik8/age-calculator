@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link href="./css/styles.css" rel="stylesheet">
 
   <title>Frontend Mentor | Age calculator app</title>
 </head>
@@ -12,15 +13,17 @@
   <main>
     <div class="panel">
       <form>
-        <label>Day
-          <input type="text" placeholder="DD"/>
-        </label>
-        <label>Month
-          <input type="text" placeholder="MM"/>
-        </label>
-        <label>Year
-          <input type="text" placeholder="YYYY"/>
-        </label>
+        <fieldset class="date-fieldset">
+          <label class="input-label">Day
+            <input class="input-field" type="text" placeholder="DD"/>
+          </label>
+          <label class="input-label">Month
+            <input class="input-field" type="text" placeholder="MM"/>
+          </label>
+          <label class="input-label">Year
+            <input class="input-field" type="text" placeholder="YYYY"/>
+          </label>
+        </fieldset>
       </form>
       <div class="submit-div">
         <hr class="divider">
