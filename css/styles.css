@@ -1,3 +1,110 @@
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url(../assets/fonts/Poppins-Bold.ttf);
+}
+@font-face {
+    font-family: "Poppins-Extra-Bold-Italic";
+    src: url(../assets/fonts/Poppins-ExtraBoldItalic.ttf);
+}
+body{
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(0, 0%, 94%);
+}
+main{
+    background-color: hsl(0, 0%, 100%);
+    width: 90%;
+    max-width: 30rem;
+    padding: 3rem 2rem 3rem 2rem;
+    border-radius: 1rem 1rem 8rem;
+    margin-bottom: 2rem;
+}
+.date-fieldset{
+    display: flex;
+    border: none;
+    padding: 0;
+    gap: 1rem;
+    font-family: "Poppins-Bold";
+}
+.input-label{
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+}
+.input-field{
+    display: block;
+    width: 5.5rem;
+    padding: 0.3rem 0 0.3rem 0.7rem;
+    border: 0.3px solid hsl(0, 0%, 86%);
+    border-radius: 0.2rem;
+    font-size: 1.3rem;
+    font-family: "Poppins-Bold", serif;
+    caret-color: hsl(259, 100%, 65%);
+    margin-top: 0.3rem;
+}
+.input-field:focus{
+    outline: none;
+    border-color: hsl(259, 100%, 65%);
+}
+.input-field:hover, .compute-button:hover{
+    cursor: pointer;
+}
+.input-field::placeholder, .input-label{
+    color: hsl(0, 1%, 44%);
+    font-family: "Poppins-Bold", serif;
+}
+.submit-div{
+    position: relative;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+}
+.divider{
+    height: 0.0 3rem;
+    width: 100%;
+    border-color: hsl(0, 0%, 86%);
+}
+.compute-button{
+    position: absolute;
+    right: 0%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 3.5rem;
+    background-color: hsl(259, 100%, 65%);
+    transition: background-color 0.2s ease-in-out;
+}
+.compute-button:hover{
+    background-color: hsl(0, 0%, 8%);
+}
+.arrow-image{
+    width: 2rem;
+}
+.number-paragraph, .input-field{
+    color: hsl(0, 0%, 8%);
+}
+.number-span{
+    color: hsl(259, 100%, 65%);
+    word-spacing: 0;
+}
+.number-span, .number-paragraph{
+    font-family: "Poppins-Extra-Bold-Italic";
+    font-size: 4rem;
+    margin: 0;
+    margin-top: -1.2rem;
+}
+.number-paragraph{
+    word-spacing: -0.5rem;
+}
 .attribution {
     font-size: 11px;
     text-align: center;

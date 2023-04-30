@@ -8,31 +8,32 @@
   <link href="./css/styles.css" rel="stylesheet">
 
   <title>Frontend Mentor | Age calculator app</title>
+  <script src="./js/script.js"></script>
 </head>
 <body>
   <main>
     <div class="panel">
       <form>
         <fieldset class="date-fieldset">
-          <label class="input-label">Day
+          <label class="input-label">DAY
             <input class="input-field" type="text" placeholder="DD"/>
           </label>
-          <label class="input-label">Month
+          <label class="input-label">MONTH
             <input class="input-field" type="text" placeholder="MM"/>
           </label>
-          <label class="input-label">Year
+          <label class="input-label">YEAR
             <input class="input-field" type="text" placeholder="YYYY"/>
           </label>
         </fieldset>
+        <div class="submit-div">
+          <hr class="divider">
+          <button class="compute-button"><img class="arrow-image" src="./assets/images/icon-arrow.svg" alt="Arrow image."></button>
+        </div>
       </form>
-      <div class="submit-div">
-        <hr class="divider">
-        <button><img src="./assets/images/icon-arrow.svg"></button>
-      </div>
       <div class="result">
-        <p class="years"><span class="years-span">--</span> years</p>
-        <p class="months"><span class="months-span">--</span> months</p>
-        <p class="days"><span class="days-span">--</span> days</p>
+        <p class="number-paragraph"><span class="number-span">- -</span> years</p>
+        <p class="number-paragraph"><span class="number-span">- -</span> months</p>
+        <p class="number-paragraph"><span class="number-span">- -</span> days</p>
       </div>
     </div>
   </main>
