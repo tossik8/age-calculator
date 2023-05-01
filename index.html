@@ -17,26 +17,26 @@
         <fieldset class="date-fieldset">
           <div class="input-div">
             <label class="input-label">DAY
-              <input class="input-field" type="text" placeholder="DD"/>
+              <input class="input-field" name="day" type="text" placeholder="DD"/>
             </label>
-            <p class="error-message"></p>
+            <p class="error-message" id="day-error"></p>
           </div>
           <div class="input-div">
             <label class="input-label">MONTH
-              <input class="input-field" type="text" placeholder="MM"/>
+              <input class="input-field" name="month" type="text" placeholder="MM"/>
             </label>
-            <p class="error-message"></p>
+            <p class="error-message" id="month-error"></p>
           </div>
           <div class="input-div">
             <label class="input-label">YEAR
-              <input class="input-field" type="text" placeholder="YYYY"/>
+              <input class="input-field" name="year" type="text" placeholder="YYYY"/>
             </label>
-            <p class="error-message"></p>
+            <p class="error-message" id="year-error"></p>
           </div>
         </fieldset>
         <div class="submit-div">
           <hr class="divider">
-          <button class="compute-button"><img class="arrow-image" src="./assets/images/icon-arrow.svg" alt="Arrow image."></button>
+          <button type="button" onclick="submitForm()" class="compute-button"><img class="arrow-image" src="./assets/images/icon-arrow.svg" alt="Arrow image."></button>
         </div>
       </form>
       <div class="result">
