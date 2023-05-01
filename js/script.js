@@ -14,7 +14,8 @@ function submitForm(){
             addError(inputs[2], "");
         }
         else{
-            computeAge(new Date(`${inputs[1].value} ${inputs[0].value} ${inputs[2].value}`));
+            const { year, month, day} = computeAge(new Date(`${inputs[1].value} ${inputs[0].value} ${inputs[2].value}`));
+            makeSingular(year, month, day);
         }
     }
 }
@@ -73,48 +74,81 @@ function addError(input, text){
     input.parentElement.classList.add("error-label");
 }
 function computeAge(birthday){
-    const dobYear = birthday.getYear();
-    const dobMonth = birthday.getMonth();
-    const dobDate = birthday.getDate();
-
     const now = new Date();
-    const currentYear = now.getYear();
-    const currentMonth = now.getMonth();
-    const currentDate = now.getDate();
-
-    let yearAge = currentYear - dobYear;
-
-    let monthAge = Math.abs(currentMonth - dobMonth);
-
-    if (currentMonth < dobMonth){
-      yearAge--;
+    let year = now.getFullYear() - birthday.getFullYear();
+    let month = now.getMonth() - birthday.getMonth();
+    if(now.getMonth() < birthday.getMonth()){
+        --year;
+        month += 12;
     }
-    let dateAge = Math.abs(currentDate - dobDate);
-
-    if (currentDate < dobDate){
-      monthAge--;
-      if (monthAge < 0) {
-        monthAge = 11;
-        yearAge--;
-      }
+    let day = now.getDate() - birthday.getDate();
+    if(now.getDate() < birthday.getDate()){
+        --month;
+        if(month < 0){
+            month = 11;
+            --year;
+        }
+        day += getDaysInMonth(birthday.getMonth() + 1);
     }
-    countTo(yearAge, "years-span");
-    countTo(monthAge, "months-span");
-    countTo(dateAge, "days-span");
+    document.getElementById("years-span").textContent = year;
+    document.getElementById("months-span").textContent = month;
+    document.getElementById("days-span").textContent = day;
+    return { year, month, day };
 
 }
-function countTo(to, id){
-    const step = 1;
-    let from = 0;
-    if(from === to){
-        document.getElementById(id).textContent = to;
-        return;
+function makeSingular(year, month, day){
+    if(year === 1){
+        document.getElementById("single-year").textContent = "";
     }
-    let counter = setInterval(() => {
-        from += step;
-        document.getElementById(id).textContent = from;
-        if(from === to){
-            clearInterval(counter);
-        }
-    }, 100);
+    else{
+        document.getElementById("single-year").textContent = "s";
+    }
+    if(month === 1){
+        document.getElementById("single-month").textContent = "";
+    }
+    else{
+        document.getElementById("single-month").textContent = "s";
+    }
+    if(day === 1){
+        document.getElementById("single-day").textContent = "";
+    }
+    else{
+        document.getElementById("single-day").textContent = "s";
+    }
+}
+function getDaysInMonth(month){
+    if(month === 1){
+        return 31;
+    }
+    else if(month === 2){
+        return 28;
+    }
+    else if(month === 3){
+        return 31;
+    }
+    else if(month === 4){
+        return 30;
+    }
+    else if(month === 5){
+        return 31;
+    }
+    else if(month === 6){
+        return 30;
+    }
+    else if(month === 7){
+        return 31;
+    }
+    else if(month === 8){
+        return 31;
+    }
+    else if(month === 9){
+        return 30;
+    }
+    else if(month === 10){
+        return 31;
+    }
+    else if(month === 11){
+        return 30;
+    }
+    else return 31;
 }
