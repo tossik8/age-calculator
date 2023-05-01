@@ -21,7 +21,7 @@ main{
     background-color: hsl(0, 0%, 100%);
     width: 90%;
     max-width: 30rem;
-    padding: 3rem 2rem 3rem 2rem;
+    padding: 3rem 2rem;
     border-radius: 1rem 1rem 8rem;
     margin-bottom: 2rem;
 }
@@ -111,4 +111,36 @@ main{
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+@media screen and (max-width: 550px){
+    main{
+        padding: 2rem 1rem;
+        width: 87%;
+    }
+    .date-fieldset{
+        width: 100%;
+        justify-content: space-between;
+        max-width: 20.8rem;
+    }
+    .input-field{
+        width: 90%;
+        max-width: 5.5rem;
+    }
+    .submit-div{
+        margin: 2rem 0;
+    }
+    .compute-button{
+        left: 44%;
+    }
+    .arrow-image{
+        width: 1.5rem;
+    }
+    .number-span, .number-paragraph{
+        font-size: 3.5rem;
+    }
+}
+@media screen and (max-width: 390px){
+    .compute-button{
+        left: 40%;
+    }
 }
