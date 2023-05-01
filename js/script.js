@@ -75,9 +75,9 @@ function addError(input, text){
 }
 function computeAge(dayP, monthP, yearP){
     const now = new Date();
-    let year = now.getFullYear() - yearP
-    let month = now.getMonth() - monthP;
-    if(now.getMonth() < monthP){
+    let year = now.getFullYear() - yearP;
+    let month = now.getMonth() + 1 - monthP;
+    if(now.getMonth() + 1 < monthP){
         --year;
         month += 12;
     }
