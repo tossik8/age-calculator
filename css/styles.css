@@ -23,8 +23,8 @@ body{
 }
 main{
     background-color: hsl(0, 0%, 100%);
-    width: 90%;
-    max-width: 30rem;
+    width: 85%;
+    max-width: 35rem;
     padding: 3rem 2rem;
     border-radius: 1rem 1rem 8rem;
     margin-bottom: 2rem;
@@ -43,7 +43,7 @@ main{
 }
 .input-field{
     display: block;
-    width: 5.5rem;
+    width: 7.5rem;
     padding: 0.3rem 0 0.3rem 0.7rem;
     border: 0.3px solid hsl(0, 0%, 86%);
     border-radius: 0.2rem;
@@ -118,9 +118,9 @@ main{
 }
 .number-span, .number-paragraph{
     font-family: "Poppins-Extra-Bold-Italic";
-    font-size: 4rem;
+    font-size: 5rem;
     margin: 0;
-    margin-top: -1.2rem;
+    margin-top: -1.5rem;
 }
 .number-paragraph{
     word-spacing: -0.5rem;
@@ -147,7 +147,7 @@ main{
         max-width: 5.5rem;
     }
     .submit-div{
-        margin: 2rem 0;
+        margin: 1rem 0 2rem;
     }
     .arrow-image{
         width: 1.5rem;
