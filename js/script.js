@@ -13,6 +13,9 @@ function submitForm(){
             addError(inputs[1], "");
             addError(inputs[2], "");
         }
+        else{
+            computeAge(new Date(`${inputs[1].value} ${inputs[0].value} ${inputs[2].value}`));
+        }
     }
 }
 function clearErrors(){
@@ -68,4 +71,52 @@ function addError(input, text){
     document.getElementById(`${input.name}-error`).textContent = text;
     document.getElementsByName(input.name)[0].classList.add("error-border");
     input.parentElement.classList.add("error-label");
+}
+function computeAge(birthday){
+    const dobYear = birthday.getYear();
+    const dobMonth = birthday.getMonth();
+    const dobDate = birthday.getDate();
+
+    const now = new Date();
+    const currentYear = now.getYear();
+    const currentMonth = now.getMonth();
+    const currentDate = now.getDate();
+
+    let yearAge = currentYear - dobYear;
+
+    let monthAge = currentMonth - dobMonth;
+
+    if (currentMonth < dobMonth){
+      yearAge--;
+      monthAge += 12;
+    }
+    let dateAge = currentDate - dobDate;
+
+    if (currentDate < dobDate){
+      monthAge--;
+      dateAge += 31;
+      if (monthAge < 0) {
+        monthAge = 11;
+        yearAge--;
+      }
+    }
+    countTo(yearAge, "years-span");
+    countTo(monthAge, "months-span");
+    countTo(dateAge, "days-span");
+
+}
+function countTo(to, id){
+    const step = 1;
+    let from = 0;
+    if(from === to){
+        document.getElementById(id).textContent = to;
+        return;
+    }
+    let counter = setInterval(() => {
+        from += step;
+        document.getElementById(id).textContent = from;
+        if(from === to){
+            clearInterval(counter);
+        }
+    }, 100);
 }
