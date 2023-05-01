@@ -84,17 +84,15 @@ function computeAge(birthday){
 
     let yearAge = currentYear - dobYear;
 
-    let monthAge = currentMonth - dobMonth;
+    let monthAge = Math.abs(currentMonth - dobMonth);
 
     if (currentMonth < dobMonth){
       yearAge--;
-      monthAge += 12;
     }
-    let dateAge = currentDate - dobDate;
+    let dateAge = Math.abs(currentDate - dobDate);
 
     if (currentDate < dobDate){
       monthAge--;
-      dateAge += 31;
       if (monthAge < 0) {
         monthAge = 11;
         yearAge--;
