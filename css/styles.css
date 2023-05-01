@@ -24,7 +24,7 @@ body{
 main{
     background-color: hsl(0, 0%, 100%);
     width: 85%;
-    max-width: 35rem;
+    max-width: 40rem;
     padding: 3rem 2rem;
     border-radius: 1rem 1rem 8rem;
     margin-bottom: 2rem;
@@ -43,7 +43,7 @@ main{
 }
 .input-field{
     display: block;
-    width: 7.5rem;
+    width: 5.5rem;
     padding: 0.3rem 0 0.3rem 0.7rem;
     border: 0.3px solid hsl(0, 0%, 86%);
     border-radius: 0.2rem;
@@ -93,9 +93,9 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3.5rem;
-    width: 3.5rem;
-    border-radius: 3.5rem;
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 4.5rem;
     background-color: hsl(259, 100%, 65%);
     transition: background-color 0.2s ease-in-out;
 }
@@ -148,6 +148,11 @@ main{
     }
     .submit-div{
         margin: 1rem 0 2rem;
+    }
+    .compute-button{
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 3.5rem;
     }
     .arrow-image{
         width: 1.5rem;
