@@ -50,7 +50,7 @@ main{
     font-size: 1.3rem;
     font-family: "Poppins-Bold", serif;
     caret-color: hsl(259, 100%, 65%);
-    margin-top: 0.3rem;
+    margin: 0.3rem 0;
 }
 .input-field:focus{
     outline: none;
