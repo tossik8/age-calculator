@@ -14,7 +14,7 @@ function submitForm(){
             addError(inputs[2], "");
         }
         else{
-            const { year, month, day} = computeAge(new Date(`${inputs[1].value} ${inputs[0].value} ${inputs[2].value}`));
+            const { year, month, day} = computeAge(+inputs[0].value, +inputs[1].value, +inputs[2].value);
             makeSingular(year, month, day);
         }
     }
@@ -73,22 +73,22 @@ function addError(input, text){
     document.getElementsByName(input.name)[0].classList.add("error-border");
     input.parentElement.classList.add("error-label");
 }
-function computeAge(birthday){
+function computeAge(dayP, monthP, yearP){
     const now = new Date();
-    let year = now.getFullYear() - birthday.getFullYear();
-    let month = now.getMonth() - birthday.getMonth();
-    if(now.getMonth() < birthday.getMonth()){
+    let year = now.getFullYear() - yearP
+    let month = now.getMonth() - monthP;
+    if(now.getMonth() < monthP){
         --year;
         month += 12;
     }
-    let day = now.getDate() - birthday.getDate();
-    if(now.getDate() < birthday.getDate()){
+    let day = now.getDate() - dayP;
+    if(now.getDate() < dayP){
         --month;
         if(month < 0){
             month = 11;
             --year;
         }
-        day += getDaysInMonth(birthday.getMonth());
+        day += getDaysInMonth(monthP);
     }
     document.getElementById("years-span").textContent = year;
     document.getElementById("months-span").textContent = month;
@@ -117,37 +117,37 @@ function makeSingular(year, month, day){
     }
 }
 function getDaysInMonth(month){
-    if(month === 0){
+    if(month === 1){
         return 31;
-    }
-    else if(month === 1){
-        return 28;
     }
     else if(month === 2){
-        return 31;
+        return 28;
     }
     else if(month === 3){
-        return 30;
+        return 31;
     }
     else if(month === 4){
-        return 31;
-    }
-    else if(month === 5){
         return 30;
     }
-    else if(month === 6){
+    else if(month === 5){
         return 31;
+    }
+    else if(month === 6){
+        return 30;
     }
     else if(month === 7){
         return 31;
     }
     else if(month === 8){
-        return 30;
-    }
-    else if(month === 9){
         return 31;
     }
+    else if(month === 9){
+        return 30;
+    }
     else if(month === 10){
+        return 31;
+    }
+    else if(month === 11){
         return 30;
     }
     else return 31;
