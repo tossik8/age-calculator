@@ -6,6 +6,10 @@
     font-family: "Poppins-Extra-Bold-Italic";
     src: url(../assets/fonts/Poppins-ExtraBoldItalic.ttf);
 }
+@font-face {
+    font-family: "Poppins-Italic";
+    src: url(../assets/fonts/Poppins-Italic.ttf);
+}
 body{
     margin: 0;
     box-sizing: border-box;
@@ -59,6 +63,15 @@ main{
     color: hsl(0, 1%, 44%);
     font-family: "Poppins-Bold", serif;
 }
+.error-message{
+    margin: 0;
+    font-family: "Poppins-Italic";
+    font-size: 0.8rem;
+    position: absolute;
+}
+.error-message, .error-border, .error-label{
+    color: hsl(0, 100%, 67%);
+}
 .submit-div{
     position: relative;
     height: 4rem;
@@ -83,8 +96,12 @@ main{
     background-color: hsl(259, 100%, 65%);
     transition: background-color 0.2s ease-in-out;
 }
-.compute-button:hover{
+.compute-button:hover, .compute-button:focus{
     background-color: hsl(0, 0%, 8%);
+}
+.compute-button:focus{
+    outline: none;
+    border: 2px solid hsl(259, 100%, 65%);
 }
 .arrow-image{
     width: 2rem;
@@ -128,9 +145,6 @@ main{
     }
     .submit-div{
         margin: 2rem 0;
-    }
-    .compute-button{
-        left: 44%;
     }
     .arrow-image{
         width: 1.5rem;
