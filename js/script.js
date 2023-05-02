@@ -1,4 +1,5 @@
 function submitForm(){
+    document.getElementsByClassName("compute-button")[0].blur();
     clearErrors();
     const inputs = document.getElementsByClassName("input-field");
     for(let input of inputs){
@@ -10,6 +11,11 @@ function submitForm(){
     if(!hasError(inputs[0]) && !hasError(inputs[1]) && !hasError(inputs[2])){
         if(!isValidDate(inputs[0].value, inputs[1].value, inputs[2].value)){
             addError(inputs[0], "Must be a valide date");
+            addError(inputs[1], "");
+            addError(inputs[2], "");
+        }
+        else if(new Date(`${inputs[1].value} ${inputs[0].value} ${inputs[2].value}`).getTime() > new Date().getTime()){
+            addError(inputs[0], "Must be in the past");
             addError(inputs[1], "");
             addError(inputs[2], "");
         }
@@ -90,11 +96,32 @@ function computeAge(dayP, monthP, yearP){
         }
         day += getDaysInMonth(monthP);
     }
-    document.getElementById("years-span").textContent = year;
-    document.getElementById("months-span").textContent = month;
-    document.getElementById("days-span").textContent = day;
+    document.getElementById("years-span").textContent = "- -";
+    document.getElementById("months-span").textContent = "- -";
+    document.getElementById("days-span").textContent = "- -";
+    animateNumber(year, "years-span");
+    animateNumber(month, "months-span");
+    animateNumber(day, "days-span");
     return { year, month, day };
 
+}
+
+function animateNumber(number, item){
+    const step = 1;
+    let interval = 2000;
+    if(number !== 0){
+        interval /= number;
+    }
+    let from = 0;
+    let counter = setInterval(() => {
+        if(from === number){
+            clearInterval(counter);
+            document.getElementById(item).textContent = number;
+            return;
+        }
+        from += step;
+        document.getElementById(item).textContent = from;
+    }, interval);
 }
 function makeSingular(year, month, day){
     if(year === 1){
