@@ -4,18 +4,18 @@ function submitForm(){
     const inputs = document.getElementsByClassName("input-field");
     for(let input of inputs){
         if(isEmpty(input.value)){
-            addError(input, "This field is required");
+            addError(input, "Незаполненное поле");
         }
         executeCheck(input);
     }
     if(!hasError(inputs[0]) && !hasError(inputs[1]) && !hasError(inputs[2])){
         if(!isValidDate(inputs[0].value, inputs[1].value, inputs[2].value)){
-            addError(inputs[0], "Must be a valide date");
+            addError(inputs[0], "Неверная дата");
             addError(inputs[1], "");
             addError(inputs[2], "");
         }
         else if(new Date(`${inputs[1].value} ${inputs[0].value} ${inputs[2].value}`).getTime() > new Date().getTime()){
-            addError(inputs[0], "Must be in the past");
+            addError(inputs[0], "Должно быть в прошлом");
             addError(inputs[1], "");
             addError(inputs[2], "");
         }
@@ -43,17 +43,17 @@ function executeCheck(input){
     if(!hasError(input)){
         if(input.name === "day"){
             if(!isValidDay(input.value)){
-                addError(input, "Must be a valid day");
+                addError(input, "Неверный день месяца");
             }
         }
         else if(input.name === "month"){
             if(!isValidMonth(input.value)){
-                addError(input, "Must be a valid month");
+                addError(input, "Неверный месяц");
             }
         }
         else if(input.name === "year"){
             if(!isValidYear(input.value)){
-                addError(input, "Must be in the past");
+                addError(input, "Должно быть в прошлом");
             }
         }
     }
@@ -124,23 +124,32 @@ function animateNumber(number, item){
     }, interval);
 }
 function makeSingular(year, month, day){
-    if(year === 1){
-        document.getElementById("single-year").textContent = "";
+    if(year !== 11 && year.toString().at(-1) === "1"){
+        document.getElementById("year-word").textContent = "год";
+    }
+    else if((year !== 12 && year.toString().at(-1) === "2") || (year !== 13 && year.toString().at(-1) === "3") || (year !== 14 && year.toString().at(-1) === "4")){
+        document.getElementById("year-word").textContent = "года";
     }
     else{
-        document.getElementById("single-year").textContent = "s";
+        document.getElementById("year-word").textContent = "лет";
     }
     if(month === 1){
-        document.getElementById("single-month").textContent = "";
+        document.getElementById("month-word").textContent = "месяц";
+    }
+    else if(month === 2 || month === 3 || month === 4){
+        document.getElementById("month-word").textContent = "месяца";
     }
     else{
-        document.getElementById("single-month").textContent = "s";
+        document.getElementById("month-word").textContent = "месяцев";
     }
-    if(day === 1){
-        document.getElementById("single-day").textContent = "";
+    if(day !== 11 && day.toString().at(-1) === "1"){
+        document.getElementById("day-word").textContent = "день";
+    }
+    else if((day !== 12 && day.toString().at(-1) === "2") || (day !== 13 && day.toString().at(-1) === "3") || (day !== 14 && day.toString().at(-1) === "4")){
+        document.getElementById("day-word").textContent = "дня";
     }
     else{
-        document.getElementById("single-day").textContent = "s";
+        document.getElementById("day-word").textContent = "дней";
     }
 }
 function getDaysInMonth(month){
