@@ -65,7 +65,7 @@ function isValidDay(day){
     return !Number.isNaN(day) &&  1 <= day && day <= 31
 }
 function isValidYear(year){
-    return !Number.isNaN(year) && 0 <= year && year <= 2023
+    return !Number.isNaN(year) && 0 <= year;
 }
 function isValidMonth(month){
     return !Number.isNaN(month) && 1 <= month && month <= 12;
