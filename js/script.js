@@ -53,7 +53,7 @@ function executeCheck(input){
         }
         else if(input.name === "year"){
             if(!isValidYear(input.value)){
-                addError(input, "Должно быть в прошлом");
+                addError(input, "Неверный год");
             }
         }
     }
